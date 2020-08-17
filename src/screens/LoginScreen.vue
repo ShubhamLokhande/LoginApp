@@ -26,6 +26,9 @@
         <nb-button block :on-press="login">
           <nb-text>Login </nb-text>
         </nb-button>
+        <nb-button transparent :on-press="goToRegister">
+          <nb-text>Not Registered? Register here</nb-text>
+        </nb-button>
       </view>
     </nb-content>
   </nb-container>
@@ -74,6 +77,9 @@ export default {
             }
           })
       }
+    },
+    goToRegister(){
+      this.navigation.navigate('Register')
     },
     customToast(text, type){
       Toast.show({

@@ -16,15 +16,18 @@ import {
   createStackNavigator
 } from 'vue-native-router'
 import LoginScreen from './screens/LoginScreen'
+import RegisterScreen from './screens/RegisterScreen'
 
 const AuthStack = createStackNavigator(
-{
-  Login: LoginScreen
-},
-{   
-  headerMode: 'none',
-  initialRouteName: 'Login'
-})
+  {
+    Login: LoginScreen,
+    Register: RegisterScreen
+  },
+  {   
+    headerMode: 'none',
+    initialRouteName: 'Login'
+  }
+)
 const Navigation = createDrawerNavigator({
   Home: HomeScreen,
   AboutUs: AboutScreen
