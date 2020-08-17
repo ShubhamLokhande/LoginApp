@@ -1,17 +1,28 @@
 <template>
-  <view class="container">
-    <text class="text-color-primary">My Vue Native App</text>
-  </view>
+  <App v-if="isAppReady"/>
 </template>
 
-<style>
-.container {
-  background-color: white;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
+<script>
+import App from './src'
+import * as Font from 'expo-font'
+import { Ionicons } from '@expo/vector-icons'
+
+export default {
+  components: { 
+    App 
+  },
+  data(){
+    return{
+      isAppReady: false
+    }
+  },
+  async created(){
+    await Font.loadAsync({
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+      ...Ionicons.font,
+    });
+    this.isAppReady = true
+  }
 }
-.text-color-primary {
-  color: blue;
-}
-</style>
+</script>
