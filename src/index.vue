@@ -8,8 +8,13 @@
 import Navigation from './Navigation'
 import Vue from 'vue-native-core'
 import { VueNativeBase } from 'native-base'
+import store from './store'
+import Vuelidate from 'vuelidate'
 
 Vue.use(VueNativeBase)
+Vue.use(Vuelidate)
+
+Vue.prototype.$store = store
 
 export default {
   components:{

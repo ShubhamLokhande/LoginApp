@@ -1,26 +1,43 @@
 <template>
-  <app-navigator/>
+  <root>
+    <AppNavigation/>
+  </root>
 </template>
 
 <script>
 import HomeScreen from './screens/HomeScreen'
 import AboutScreen from './screens/AboutScreen'
+import { Root } from 'native-base'
 
 import {
   createAppContainer,
-  createDrawerNavigator
+  createDrawerNavigator,
+  createSwitchNavigator,
+  createStackNavigator
 } from 'vue-native-router'
+import LoginScreen from './screens/LoginScreen'
 
+const AuthStack = createStackNavigator(
+{
+  Login: LoginScreen
+},
+{   
+  headerMode: 'none',
+  initialRouteName: 'Login'
+})
 const Navigation = createDrawerNavigator({
   Home: HomeScreen,
-  'About Us': AboutScreen
+  AboutUs: AboutScreen
 })
 
-const AppNavigator = createAppContainer(Navigation)
+const AppNavigation = createAppContainer(createSwitchNavigator({
+  Auth: AuthStack,
+  App: Navigation
+}))
 
 export default {
   components: { 
-    AppNavigator 
+    Root, AppNavigation
   }
 }
 </script>

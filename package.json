@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "expo": "~38.0.8",
     "expo-status-bar": "^1.0.2",
     "native-base": "^2.13.13",
@@ -22,7 +23,9 @@
     "react-navigation-drawer": "^2.5.0",
     "vue-native-core": "^0.1.4",
     "vue-native-helper": "^0.1.4",
-    "vue-native-router": "^0.1.1"
+    "vue-native-router": "^0.1.1",
+    "vuelidate": "^0.7.5",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
