@@ -15,7 +15,7 @@ export default {
   },
   actions:{
     login({commit, state}, userData){
-      return axios.post( `${BASE_URL}/user/login`, userData)
+      return axios.post( `${BASE_URL}/user/login`, userData, { timeout: 3000})
         .then(res => {
           if(res.data == ""){
             commit('setIsAuth', false)
@@ -25,6 +25,9 @@ export default {
           const user = res.data
           commit('setAuthUser', user)
           return state.user
+        })
+        .catch(res => {
+          return "timeout"
         })
     }
   },

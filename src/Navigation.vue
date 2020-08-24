@@ -7,6 +7,7 @@
 <script>
 import HomeScreen from './screens/HomeScreen'
 import AboutScreen from './screens/AboutScreen'
+import ProfileScreen from './screens/ProfileScreen'
 import { Root } from 'native-base'
 
 import {
@@ -30,7 +31,10 @@ const AuthStack = createStackNavigator(
 )
 const Navigation = createDrawerNavigator({
   Home: HomeScreen,
-  AboutUs: AboutScreen
+  AboutUs: AboutScreen,
+  Profile: ProfileScreen
+},{
+  initialRouteName:'Profile'
 })
 
 const AppNavigation = createAppContainer(createSwitchNavigator({

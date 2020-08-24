@@ -37,12 +37,8 @@
 <script>
 import { required } from 'vuelidate/lib/validators'
 import { Toast } from 'native-base'
-import InputWithError from '../components/InputWithError'
 
 export default {
-  components:{
-    InputWithError
-  },
   props:{
     navigation:{
       type: Object
@@ -71,6 +67,8 @@ export default {
           .then(res => {
             if(res === false){
               this.customToast("Wrong email or password","danger")
+            } else if(res === "timeout"){
+              this.customToast("Timeout..!! Check your internet connection","warning")
             } else {
               this.customToast("Login success","success")
               this.navigation.navigate('App')
